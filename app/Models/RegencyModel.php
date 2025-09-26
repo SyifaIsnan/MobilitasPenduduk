@@ -31,7 +31,7 @@ protected $table = "regency";
     }
 
     public function province(){
-        return $this->hasMany(ProvincesModel::class);
+        return $this->belongsTo(ProvincesModel::class);
     }
 
     public function populationHistory(){

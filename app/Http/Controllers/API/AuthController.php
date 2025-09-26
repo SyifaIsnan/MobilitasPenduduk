@@ -13,9 +13,9 @@ class AuthController extends Controller
 {
     public function register(Request $request){
         $validate = Validator::make($request->all(), [
-            'name'=>'required|string|max:255',
+            'nama_lengkap'=>'required|string|max:255',
             'email'=>'required|string|email|max:255|unique:users',
-            'password'=>'required|string|min:8|confirmed',
+            'kata_sandi'=>'required|string|min:8|confirmed',
         ]);
 
         if($validate->fails()){
@@ -26,9 +26,9 @@ class AuthController extends Controller
         }
 
         $user = User::create([
-            'name'=>$request->name,
+            'nama_lengkap'=>$request->nama_lengkap,
             'email'=>$request->email,
-            'password'=> Hash::make($request->password),
+            'kata_sandi'=> Hash::make($request->kata_sandi),
         ]);
 
         return response()->json([
@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function login(Request $request){
         $validate = Validator::make($request->all(), [
             'email'=>'required|string|email|max:255',
-            'password'=>'required|string|min:8',
+            'kata_sandi'=>'required|string|min:8',
         ]);
 
         if($validate->fails()){
@@ -52,13 +52,6 @@ class AuthController extends Controller
                 'success'=> false,
                 'error'=> $validate->errors(),
             ] ,403);
-        }
-
-        if(!Auth::attempt($request->only('email','password'))){
-            return response()->json([
-                'success'=> false,
-                'error'=> 'Invalid login detail',
-            ], 402);
         }
 
         $user = User::where('email',$request->email)->first();

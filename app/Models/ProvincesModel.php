@@ -28,7 +28,7 @@ class ProvincesModel extends Model
     }
 
     public function regency(){
-        return $this->belongsTo(RegencyModel::class);
+        return $this->hasMany(RegencyModel::class);
     }
 
     public function province(){

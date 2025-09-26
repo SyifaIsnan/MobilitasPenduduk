@@ -9,19 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-
     public function up(): void
     {
-        Schema::create('provinces', function (Blueprint $table) {
+        Schema::create('regency', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
+            $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
             $table->string('nama');
             $table->string('kode');
             $table->integer('luas_km2');
             $table->integer('jumlah_penduduk_sekarang');
             $table->integer('kapasitas_maks');
             $table->string('status');
-            $table->string('indikator_warna');
             $table->string('sektor_ekonomi');
             $table->double('tingkat_pengangguran');
             $table->float('indeks_biaya_hidup');
@@ -35,8 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('provinces');
+        Schema::dropIfExists('regency');
     }
-
-
 };
