@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
             $table->string('nama');
             $table->string('kode');
             $table->integer('luas_km2');

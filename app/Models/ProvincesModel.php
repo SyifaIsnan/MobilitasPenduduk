@@ -8,14 +8,12 @@ class ProvincesModel extends Model
 {
     protected $table = "provinces";
     protected $fillable = [
+        'regency_id',
         'nama',
         'kode', 
-        'koordinat_latitude', 
-        'koordinat_longitude',
         'luas_km2', 
         'jumlah_penduduk_sekarang', 
         'kapasitas_maks', 
-        'kepadatan_per_km2',
         'status', 
         'indikator_warna', 
         'sektor_ekonomi', 
