@@ -11,35 +11,57 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function register(Request $request){
-        $validate = Validator::make($request->all(), [
-            'nama_lengkap'=>'required|string|max:255',
-            'email'=>'required|string|email|max:255|unique:users',
-            'kata_sandi'=>'required|string|min:8|confirmed',
-        ]);
+public function register(Request $request){
+    $validate = Validator::make($request->all(), [
+        'nama_lengkap' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'kata_sandi' => 'required|string|min:8|confirmed',
+        'telepon' => 'required|string|max:15',
+        'nik' => 'required|string|size:16|unique:users',
+        'umur' => 'required|integer|min:1|max:120',
+        'jenis_kelamin' => 'required|string|max:255',
+        'pendidikan' => 'required|string|max:255',
+        'profesi' => 'required|string|max:255',
+        'keahlian' => 'required|string|max:255',
+        'status_perkawinan' => 'required|string',
+        'jumlah_anggota_keluarga' => 'required|integer|min:1',
+        'province_id' => 'required|integer',
+        'regency_id' => 'required|integer'
+    ]);
 
-        if($validate->fails()){
-            return response()->json([
-                'success'=> false,
-                'error'=> $validate->errors(),
-            ] ,403);
-        }
-
-        $user = User::create([
-            'nama_lengkap'=>$request->nama_lengkap,
-            'email'=>$request->email,
-            'kata_sandi'=> Hash::make($request->kata_sandi),
-        ]);
-
+    if($validate->fails()){
         return response()->json([
-            'success'=>true,
-            'data'=> [
-                'user'=>$user,
-            ],
-            'message'=>'User berhasil didaftarkan!',
-        ] ,201);
+            'success' => false,
+            'error' => $validate->errors(),
+        ], 422); // Changed from 403 to 422 for validation errors
     }
 
+    $user = User::create([
+        'nama_lengkap' => $request->nama_lengkap,
+        'email' => $request->email,
+        'kata_sandi' => Hash::make($request->kata_sandi),
+        'telepon' => $request->telepon,
+        'role' => 'user', // Default role
+        'nik' => $request->nik,
+        'umur' => $request->umur,
+        'jenis_kelamin' => $request->jenis_kelamin,
+        'pendidikan' => $request->pendidikan,
+        'profesi' => $request->profesi,
+        'keahlian' => $request->keahlian,
+        'status_perkawinan' => $request->status_perkawinan,
+        'jumlah_anggota_keluarga' => $request->jumlah_anggota_keluarga,
+        'province_id' => $request->province_id,
+        'regency_id' => $request->regency_id,
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'data' => [
+            'user' => $user,
+        ],
+        'message' => 'User berhasil didaftarkan!',
+    ], 201);
+}
 
     public function login(Request $request){
         $validate = Validator::make($request->all(), [

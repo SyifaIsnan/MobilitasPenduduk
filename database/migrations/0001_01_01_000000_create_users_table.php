@@ -21,11 +21,11 @@ return new class extends Migration
             $table->enum('role', ['user', 'admin_pusat', 'admin_daerah', 'admin_kabupaten'])->default('user');
             $table->string('nik');
             $table->integer('umur');
-            $table->string('jenis_kelamin');
+            $table->enum('jenis_kelamin',['Laki-laki', 'Perempuan']);
             $table->string('pendidikan');
             $table->string('profesi');
             $table->string('keahlian');
-            $table->string('status_perkawinan');
+            $table->enum('status_perkawinan',['Belum Menikah','Menikah','Cerai Hidup','Cerai Mati']);
             $table->integer('jumlah_anggota_keluarga');
             $table->boolean('aktif')->default(true);
             $table->date('login_terakhir')->nullable();

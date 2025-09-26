@@ -36,7 +36,8 @@ class User extends Authenticatable
         'jumlah_anggota_keluarga',
         'aktif',
         'login_terakhir',
-        'province_id'
+        'province_id',
+        'regency_id'
     ];
 
     /**
@@ -79,6 +80,10 @@ class User extends Authenticatable
 
     public function provinces(){
         return $this->belongsTo(ProvincesModel::class);
+    }
+
+    public function regency(){
+        return $this->belongsTo(RegencyModel::class);
     }
 
     public function MigrationApplications(){
