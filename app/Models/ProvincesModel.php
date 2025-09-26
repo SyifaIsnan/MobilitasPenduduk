@@ -22,35 +22,41 @@ class ProvincesModel extends Model
         'skor_infrastruktur'
     ];
 
-    public function provinces(){
-        return $this->hasOne(User::class);
-    }
-
-    public function populationHistory(){
-        return $this->hasOne(PopulationHistoryModel::class);
-    }
-
-    public function jobOpprtunities(){
-        return $this->hasOne(JobOpportunitiesModel::class);
-    }
-
-    public function MigrationApplications(){
-        return $this->hasMany(MigrationApplicationsModel::class);
-    }
-
-    public function CompensationSchemes(){
-        return $this->hasMany(CompensationSchemesModel::class);
-    }
-
-    public function alerts(){
-        return $this->hasOne(AlertsModel::class);
-    }
-
-    public function aiPredictions(){
-        return $this->hasOne(AiPredictionsModel::class);
+    public function users()
+    {
+        return $this->hasMany(User::class);
     }
 
     public function regency(){
-        return $this->hasOne(RegencyModel::class);
+        return $this->belongsTo(RegencyModel::class);
     }
+
+    public function province(){
+        return $this->hasOne(ProvincesModel::class);
+    }
+
+    public function populationHistory(){
+        return $this->hasMany(PopulationHistoryModel::class);
+    }
+
+    public function migrationApplications(){
+        return $this->hasMany(MigrationApplicationsModel::class);
+    }
+
+    public function compensationSchemes(){
+        return $this->hasMany(CompensationSchemesModel::class);
+    }
+
+    public function migrationRecommendations(){
+        return $this->hasMany(MigrationRecommendationsModel::class);
+    }
+
+    public function alerts(){
+        return $this->hasMany(AlertsModel::class);
+    }
+
+    public function aiPredictions(){
+        return $this->hasMany(AiPredictionsModel::class);
+    }
+    
 }

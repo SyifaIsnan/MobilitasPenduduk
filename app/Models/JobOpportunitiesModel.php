@@ -9,6 +9,7 @@ class JobOpportunitiesModel extends Model
     protected $table = "job_opportunities";
     protected $fillable = [
         'province_id',
+        'regency_id',
         'judul',
         'perusahaan',
         'sektor',

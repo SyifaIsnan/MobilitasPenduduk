@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('dari_province_id')->nullable()->constrained('provinces')->onDelete('cascade');
             $table->foreignId('ke_province_id')->nullable()->constrained('provinces')->onDelete('cascade');
+            $table->foreignId('dari_regency_id')->nullable()->constrained('regency')->onDelete('cascade');
+            $table->foreignId('ke_regency_id')->nullable()->constrained('regency')->onDelete('cascade');
             $table->decimal('jumlah_dasar', 12, 2);
             $table->integer('multiplier_keluarga');
             $table->integer('multiplier_pendidikan');

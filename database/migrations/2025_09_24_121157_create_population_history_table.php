@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('migrasi_keluar');
             $table->integer('pertumbuhan_alamiah');
             $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
+            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
             $table->timestamps();        
         });
     }

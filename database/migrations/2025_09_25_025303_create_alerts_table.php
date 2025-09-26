@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('acknowledged_by')->constrained('users')->onDelete('cascade');
             $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
+            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
             $table->string('tipe_alert');
             $table->enum('tingkat_keparahan', ['rendah', 'sedang', 'tinggi', 'darurat']);
             $table->string('judul');

@@ -10,6 +10,8 @@ class CompensationSchemesModel extends Model
     protected $fillable = [
         'dari_province_id',
         'ke_province_id',
+        'dari_regency_id',
+        'ke_regency_id',
         'jumlah_dasar',
         'multiplier_keluarga',
         'multiplier_pendidikan',
@@ -29,6 +31,16 @@ class CompensationSchemesModel extends Model
     public function keProvince()
     {
         return $this->belongsTo(ProvincesModel::class, 'ke_province_id');
+    }
+
+    public function dariRegency()
+    {
+        return $this->belongsTo(RegencyModel::class, 'dari_regency_id');
+    }
+
+    public function keRegency()
+    {
+        return $this->belongsTo(RegencyModel::class, 'ke_regency_id');
     }
 
 }

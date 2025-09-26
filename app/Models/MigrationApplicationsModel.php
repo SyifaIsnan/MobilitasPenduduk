@@ -8,7 +8,6 @@ class MigrationApplicationsModel extends Model
 {
     protected $table = "migration_applications";
     protected $fillable = [
-
         'user_id',
         'disetujui_oleh',
         'status_pengajuan',
@@ -20,6 +19,8 @@ class MigrationApplicationsModel extends Model
         'tanggal_selesai',
         'dari_province_id',
         'ke_province_id',
+        'dari_regency_id',
+        'ke_regency_id',
     ];
 
     protected $casts = [
@@ -47,5 +48,15 @@ class MigrationApplicationsModel extends Model
     public function keProvince()
     {
         return $this->belongsTo(ProvincesModel::class, 'ke_province_id');
+    }
+
+    public function dariRegency()
+    {
+        return $this->belongsTo(RegencyModel::class, 'dari_regency_id');
+    }
+
+    public function keRegency()
+    {
+        return $this->belongsTo(RegencyModel::class, 'ke_regency_id');
     }
 }

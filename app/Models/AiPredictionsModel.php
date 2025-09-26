@@ -9,6 +9,7 @@ class AiPredictionsModel extends Model
     protected $table = "ai_predictions";
     protected $fillable = [
         'province_id',
+        'regency_id',
         'alert_id',
         'nama_model',
         'tipe_prediksi',
@@ -28,6 +29,11 @@ class AiPredictionsModel extends Model
     public function province()
     {
         return $this->belongsTo(ProvincesModel::class);
+    }
+
+    public function regency()
+    {
+        return $this->belongsTo(RegencyModel::class);
     }
 
     public function alert()

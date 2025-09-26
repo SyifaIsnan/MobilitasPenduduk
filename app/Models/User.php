@@ -86,15 +86,19 @@ class User extends Authenticatable
     }
 
     public function MigrationRecommendations(){
-        return $this->hasOne(MigrationRecommendationsModel::class);
+        return $this->hasMany(MigrationRecommendationsModel::class);
     }
 
     public function Notifications(){
-        return $this->hasOne(NotificationsModel::class);
+        return $this->hasMany(NotificationsModel::class);
     }
 
     public function Alerts(){
-        return $this->hasOne(AlertsModel::class);
+        return $this->hasMany(AlertsModel::class);
+    }
+
+    public function SystemLogs(){
+        return $this->hasMany(SystemLogsModel::class);
     }
 
 }

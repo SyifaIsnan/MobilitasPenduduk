@@ -10,6 +10,7 @@ class AlertsModel extends Model
     protected $fillable = [
         'acknowledged_by',
         'province_id',
+        'regency_id',
         'tipe_alert',
         'tingkat_keparahan',
         'judul',
@@ -34,12 +35,15 @@ class AlertsModel extends Model
         return $this->belongsTo(ProvincesModel::class);
     }
 
+    public function regency()
+    {
+        return $this->belongsTo(RegencyModel::class);
+    }
+
+
     public function acknowledgedBy()
     {
         return $this->belongsTo(User::class, 'acknowledged_by');
     }
 
-    public function aiPredictions(){
-        return $this->hasOne(AiPredictionsModel::class);
-    }
 }

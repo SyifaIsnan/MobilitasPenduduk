@@ -30,6 +30,7 @@ return new class extends Migration
             $table->boolean('aktif')->default(true);
             $table->date('login_terakhir')->nullable();
             $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
+            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

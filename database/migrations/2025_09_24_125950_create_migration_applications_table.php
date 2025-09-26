@@ -24,6 +24,10 @@ return new class extends Migration
             $table->date('tanggal_selesai')->nullable();
             $table->foreignId('dari_province_id')->constrained('provinces')->onDelete('cascade');
             $table->foreignId('ke_province_id')->constrained('provinces')->onDelete('cascade');
+
+            $table->foreignId('dari_regency_id')->constrained('regency')->onDelete('cascade');
+            $table->foreignId('ke_regency_id')->constrained('regency')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class PopulationHistoryModel extends Model
         'migrasi_keluar',
         'pertumbuhan_alamiah',
         'province_id',
+        'regency_id',
     ];
 
     protected $casts = [
@@ -24,4 +25,12 @@ class PopulationHistoryModel extends Model
     public function provinces(){
         return $this->belongsTo(ProvincesModel::class);
     }
+
+    public function regency(){
+        return $this->belongsTo(RegencyModel   ::class);
+    }
+
+    
+
+
 }

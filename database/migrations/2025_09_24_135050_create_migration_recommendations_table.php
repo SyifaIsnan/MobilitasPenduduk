@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('migration_recommendations', function (Blueprint $table) {
             $table->id();
-            $table->json('rekomendasi_provinsi');
+            $table->json('rekomendasi_tempat_migrasi');
             $table->string('preferensi_pengguna');
             $table->string('algoritma_digunakan');
             $table->date('kadaluarsa_pada');

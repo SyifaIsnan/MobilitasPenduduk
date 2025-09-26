@@ -22,6 +22,39 @@ protected $table = "regency";
     ];
 
     public function provinces(){
-        return $this->belongsTo(ProvincesModel::class);
+        return $this->hasMany(ProvincesModel::class);
+    }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
+
+    public function province(){
+        return $this->hasMany(ProvincesModel::class);
+    }
+
+    public function populationHistory(){
+        return $this->hasMany(PopulationHistoryModel::class);
+    }
+
+    public function migrationApplications(){
+        return $this->hasMany(MigrationApplicationsModel::class);
+    }
+
+    public function compensationSchemes(){
+        return $this->hasMany(CompensationSchemesModel::class);
+    }
+
+    public function migrationRecommendations(){
+        return $this->hasMany(MigrationRecommendationsModel::class);
+    }
+
+    public function alerts(){
+        return $this->hasMany(AlertsModel::class);
+    }
+
+    public function aiPredictions(){
+        return $this->hasMany(AiPredictionsModel::class);
     }
 }

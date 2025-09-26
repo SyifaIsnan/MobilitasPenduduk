@@ -31,4 +31,9 @@ class NotificationsModel extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function entitas()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

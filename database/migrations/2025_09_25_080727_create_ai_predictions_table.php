@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ai_predictions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
+            $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
             $table->foreignId('alert_id')->constrained('alerts')->onDelete('cascade');
             $table->string('nama_model');
             $table->string('tipe_prediksi');

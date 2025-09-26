@@ -8,14 +8,14 @@ class MigrationRecommendationsModel extends Model
 {
     protected $table = "migration_recommendations";
     protected $fillable = [
-        'rekomendasi_provinsi',
+        'rekomendasi_tempat_migrasi',
         'preferensi_pengguna',
         'algoritma_digunakan',
         'kadaluarsa_pada',
         'user_id',
     ];
     protected $casts = [
-        'rekomendasi_provinsi' => 'array',
+        'rekomendasi_tempat_migrasi' => 'array',
         'kadaluarsa_pada'      => 'date',
     ];
 
