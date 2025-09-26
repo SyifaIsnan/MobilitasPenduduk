@@ -62,15 +62,15 @@ class User extends Authenticatable
         ];
     }
     public function isUser(){
-        return $this->role == 'user';
+        return $this->role === 'user';
     }
 
     public function isAdminPusat(){
-        return $this->role == 'admin_pusat';
+        return $this->role === 'admin_pusat';
     }
 
     public function isAdminDaerah(){
-        return $this->role == 'admin_daerah';
+        return $this->role === 'admin_daerah';
     }
 
     public function isAdminKabupaten(){

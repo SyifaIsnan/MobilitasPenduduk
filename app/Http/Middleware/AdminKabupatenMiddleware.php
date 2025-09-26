@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminPusatMiddleware
+class AdminKabupatenMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class AdminPusatMiddleware
          /** @var User|null $user */
         $user = Auth::user();
 
-        if($user && $user->isAdminPusat()){
+        if($user && $user->isAdminKabupaten()){
             return $next($request);
         }
 
