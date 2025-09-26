@@ -22,6 +22,6 @@ protected $table = "regency";
     ];
 
     public function provinces(){
-        return $this->hasOne(ProvincesModel::class);
+        return $this->belongsTo(ProvincesModel::class);
     }
 }

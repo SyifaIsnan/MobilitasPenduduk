@@ -49,4 +49,8 @@ class ProvincesModel extends Model
     public function aiPredictions(){
         return $this->hasOne(AiPredictionsModel::class);
     }
+
+    public function regency(){
+        return $this->hasOne(RegencyModel::class);
+    }
 }
