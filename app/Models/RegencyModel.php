@@ -58,4 +58,9 @@ protected $table = "regency";
     public function aiPredictions(){
         return $this->hasMany(AiPredictionsModel::class);
     }
+
+    public function tagar(){
+        return $this->hasMany(TagarModel::class);
+    }
+
 }

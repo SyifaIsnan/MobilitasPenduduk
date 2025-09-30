@@ -63,6 +63,15 @@ public function register(Request $request){
     ], 201);
 }
 
+    public function me(Request $request)
+    {
+        return response()->json([
+            'success' => true,
+            'data' => $request->user(), // otomatis ambil user dari token Sanctum
+        ], 200);
+    }
+
+
     public function login(Request $request){
         $validate = Validator::make($request->all(), [
             'email'=>'required|string|email|max:255',

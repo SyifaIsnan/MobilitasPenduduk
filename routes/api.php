@@ -10,4 +10,10 @@ Route::prefix("V1")->group(function () {
         Route::post("register",[AuthController::class,"register"]);
         Route::post("logout",[AuthController::class,"logout"])->middleware('auth:sanctum');
     });
+
+    Route::prefix("user")->group(function () {
+        Route::get("me", [AuthController::class, "me"])->middleware('auth:sanctum');
+    });
+
+
 });
