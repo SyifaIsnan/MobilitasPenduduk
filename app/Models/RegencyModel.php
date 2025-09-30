@@ -18,7 +18,8 @@ protected $table = "regency";
         'sektor_ekonomi', 
         'tingkat_pengangguran',
         'indeks_biaya_hidup', 
-        'skor_infrastruktur'
+        'skor_infrastruktur',
+        'deskripsi',
     ];
 
     public function provinces(){

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->double('tingkat_pengangguran');
             $table->float('indeks_biaya_hidup');
             $table->integer('skor_infrastruktur');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
