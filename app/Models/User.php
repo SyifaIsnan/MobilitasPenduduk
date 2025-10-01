@@ -86,6 +86,10 @@ class User extends Authenticatable
         return $this->belongsTo(RegencyModel::class);
     }
 
+    public function UserFavoriteCities(){
+        return $this->belongsTo(UserFavoriteCitiesModel::class);
+    }
+
     public function MigrationApplications(){
         return $this->hasMany(MigrationApplicationsModel::class);
     }

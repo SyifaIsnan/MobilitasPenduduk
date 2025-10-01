@@ -15,4 +15,11 @@ class TagarModel extends Model
     public function regency(){
         return $this->belongsTo(RegencyModel::class);
     }
+
+    public function UserFavoriteCities(){
+        return $this->belongsTo(UserFavoriteCitiesModel::class);
+    }
+
+    
+
 }

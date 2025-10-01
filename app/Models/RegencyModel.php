@@ -8,6 +8,8 @@ class RegencyModel extends Model
 {
 protected $table = "regency";
     protected $fillable = [
+        'province_id',
+        'tagar_id',
         'nama',
         'kode', 
         'luas_km2', 
@@ -20,6 +22,7 @@ protected $table = "regency";
         'indeks_biaya_hidup', 
         'skor_infrastruktur',
         'deskripsi',
+
     ];
 
     public function provinces(){
@@ -29,10 +32,6 @@ protected $table = "regency";
     public function users()
     {
         return $this->hasMany(User::class);
-    }
-
-    public function province(){
-        return $this->belongsTo(ProvincesModel::class);
     }
 
     public function populationHistory(){
@@ -61,6 +60,10 @@ protected $table = "regency";
 
     public function tagar(){
         return $this->hasMany(TagarModel::class);
+    }
+
+    public function UserFavoriteCities(){
+        return $this->belongsTo(UserFavoriteCitiesModel::class);
     }
 
 }
