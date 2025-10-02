@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('regency_id')->constrained('regency')->onDelete('cascade');
+            $table->foreignId('province_id')->constrained('provinces')->onDelete('cascade');
             $table->foreignId('tagar_id')->constrained('tagar')->onDelete('cascade');
             $table->string('catatan')->nullable();
             $table->timestamps();

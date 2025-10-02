@@ -10,6 +10,7 @@ class UserFavoriteCitiesModel extends Model
     protected $fillable = [
         'user_id',
         'regency_id',
+        'province_id',
         'tagar_id',
         'catatan',
 
